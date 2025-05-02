@@ -1,0 +1,40 @@
+def modify_file(input_name, output_name):
+   try:
+       with open(input_name, 'r') as input_file:
+           data = input_file.read()
+           
+           #modify the data as needed
+           modified_data = data.upper()
+       
+           #open the output file in write mode
+           with open(output_name, 'w') as output_file:
+               output_file.write(modified_data)
+               print(f"Data has been modified and written to {output_name}")
+   except FileNotFoundError:
+       print(f"Error: The file {input_name} was not found.")
+   except IOError:  
+       print(f"Error: An I/O error occurred while processing the file.")    
+   except Exception as e:
+           print(f"An unexpected error occurred: {e}")
+   finally:
+       print("File processing completed.")
+       
+
+def main():
+    input_name = input("Enter the name of the input file: ")
+    output_name = input("Enter the name of the output file: ")
+
+    try:
+      with open(input_name, 'r') as input_file:
+            data = input_file.read()
+    except FileNotFoundError:
+        print("File not found. please check the file name and try again.")
+        return
+    except IOError:
+        print("An error occurred while reading the file.")
+    finally:
+        print("File processing completed.")
+        
+        
+
+    
